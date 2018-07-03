@@ -12,7 +12,9 @@
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<!-- 使用Hibernate之中提供的显示SQL与SQL格式化的环境配置 -->
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<!-- 根据用户的配置程序，动态的进行DDL更新操作 -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>
