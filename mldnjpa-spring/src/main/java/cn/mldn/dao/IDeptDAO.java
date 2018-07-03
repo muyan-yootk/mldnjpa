@@ -1,8 +1,8 @@
 package cn.mldn.dao;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import cn.mldn.po.Dept;
-public interface IDeptDAO extends CrudRepository<Dept, Long> { 
+public interface IDeptDAO extends JpaRepository<Dept, Long> { 
 }
   

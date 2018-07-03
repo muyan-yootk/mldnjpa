@@ -8,6 +8,10 @@ import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,6 +23,18 @@ import cn.mldn.po.Dept;
 public class TestDeptDAO {
 	@Autowired
 	private IDeptDAO deptDAO;
+	@Test
+	public void testSplit() { 
+		int currentPage = 1 ;
+		int lineSize = 3 ;
+		Sort sort = new Sort(Sort.Direction.DESC, "deptno");	// 定义排序字段
+		Pageable pageable = PageRequest.of((currentPage - 1) * lineSize, lineSize, sort);
+		Page<Dept> page = this.deptDAO.findAll(pageable) ;
+		System.out.println("【总记录数】" + page.getTotalElements());
+		System.out.println("【总页数】" + page.getTotalPages());
+		List<Dept> content = page.getContent() ; // 分页数据
+		System.out.println(content);
+	}
 
 	@Test
 	public void testSaveAll() { 
