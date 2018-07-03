@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="mldnjpa">
+		<class>cn.mldn.po.Dept</class>	<!-- JPA持久化单元名称，程序开发中使用 -->
+		<properties>
+			<!-- 定义数据库的相关连接信息，包括：连接地址、驱动程序、用户名、密码 -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mldn" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="mysqladmin" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<!-- 使用Hibernate之中提供的显示SQL与SQL格式化的环境配置 -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
