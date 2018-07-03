@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 @SuppressWarnings("serial")
 @Entity
@@ -21,6 +22,8 @@ public class Dept implements Serializable {
 	private Date createdate;
 	private String dname;
 	private int num;
+	@Version
+	private Long vseq ;  
 	
 	// setter、getter略
 	public Dept() {
